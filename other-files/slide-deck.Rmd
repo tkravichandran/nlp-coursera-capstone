@@ -1,0 +1,74 @@
+---
+title: "Data Science Capstone - Word Prediction App"
+date: "July 29, 2019"
+author: Thej
+css: bla.css
+output: slidy_presentation
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, message=F, warning=F, cache=F)
+```
+
+## Overview
+
+The goal of the Data Science Capstone Project is to build a word
+prediction app deployed on [shinyapps.io](https://www.shinyapps.io/). These applications are
+very useful while typing on a mobile device. They also find use in
+predicting errors made by users while using search engines.
+
+The following slides contain:
+
+- Description of the algorithm used to make prediction
+
+- How to Use the app and Comments on accuracy
+
+- Conclusion and additional information
+
+## Algorithm for prediction
+
+- The prediction starts with cleaning the input 
+	- e.g., removing punctuation and making all cases lower
+	
+- An offline Ngram is built and optimized for memory and speed
+	- Memory optimization for accuracy and speed led to 3s (from 30s)
+  to load and \<1s (from \>10s) to predict for the same accuracy.
+	
+- Computing the [maximum likelihood estimation or MLE](https://lagunita.stanford.edu/c4x/Engineering/CS-224N/asset/slp4.pdf) based on the
+  input and computed Ngrams (in this case 4gram to 2gram)
+  
+- Sorting and showing the output based on highest probability.
+
+```{r, echo=FALSE}
+knitr::include_graphics('./shiny.png',dpi=100)
+```
+
+## How the app works and Accuracy
+
+- Input is obtained and the `Predict` button is clicked to display
+  output and `Clear` is used to remove the output.
+
+```{r, echo=FALSE,out.width="20%", out.height="5%",fig.cap="Input and Output",fig.show='hold',fig.align='center'}
+knitr::include_graphics(c("./shiny1.png","./shiny2.png"))
+``` 
+
+- Accuracy was tested to be 21% using [this benchmarking tool](https://github.com/hfoffani/dsci-benchmark) with
+  entire corpus.
+
+- Memory optimization for accuracy and speed led to 3s (from 30s) to load and
+  \<1s (from \>10s) to predict for the same accuracy.
+  
+<!-- <div class="footer" style="margin-top:-150px;font-size:80%;">Memory -->
+<!--   optimization for accuracy and speed led to 3s (from 30s) to load and -->
+<!--   \<1s (from \>10s) to predict for the same accuracy.</div> -->
+  
+## References and Links
+
+- The prediction app can be found here:
+  https://agent18.shinyapps.io/NLP_DSCI/
+
+- Maximum liklihood and algorithm can be found here:
+  https://lagunita.stanford.edu/c4x/Engineering/CS-224N/asset/slp4.pdf
+
+- A big inspiration was drawn from here: https://rpubs.com/pferriere/dscapreport
