@@ -5,5 +5,5 @@ My final project for the [Coursera Capstone series](https://www.coursera.org/spe
 
 2. [RPUBs link of slide-deck](http://rpubs.com/agent18/516200)
 
-3. [RPUBS link of data cleaning and exploring](http://rpubs.com/agent18/516200)
+3. [RPUBS link of data cleaning and exploring](https://rpubs.com/agent18/510237)
 
